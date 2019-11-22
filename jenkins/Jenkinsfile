@@ -25,7 +25,7 @@ pipeline {
     			}
 		    }
 	    }
-    	stage("Shutdown ${THIS_PROJECT_NAME}") {
+    	stage("Shutdown") {
     		steps {
 		        echo THIS_PROJECT_VERSION
 		    }
