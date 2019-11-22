@@ -19,7 +19,9 @@ pipeline {
     	stage('PRE CHECK') {
     		steps {
     			dir("${THIS_PROJECT_DIR}"){
-    				THIS_PROJECT_VERSION = sh script: 'echo `pwd`', returnStdout: true
+                    script{
+                        THIS_PROJECT_VERSION = sh script: 'echo `pwd`', returnStdout: true
+                    }
     			}
 		    }
 	    }
