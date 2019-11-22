@@ -1,0 +1,32 @@
+def THIS_PROJECT_VERSION
+pipeline {
+    agent {
+	    node {
+	        label 'master'
+	    }
+    }
+    parameters {
+		string defaultValue: null, description: '项目目录', name: 'THIS_PROJECT_DIR', trim: true
+		string defaultValue: null, description: '项目名称', name: 'THIS_PROJECT_NAME', trim: true
+		string defaultValue: null, description: '项目运行端口号', name: 'THIS_PROJECT_WEB_PORT', trim: true
+		string defaultValue: null, description: 'spirng profile', name: 'THIS_MAVEN_PROFILE', trim: true
+	}
+    options {
+        skipStagesAfterUnstable()
+        disableConcurrentBuilds()
+    }
+    stages {
+    	stage('PRE CHECK') {
+    		steps {
+    			dir("${THIS_PROJECT_DIR}"){
+    				THIS_PROJECT_VERSION = sh script: 'echo `pwd`', returnStdout: true
+    			}
+		    }
+	    }
+    	stage("Shutdown ${THIS_PROJECT_NAME}") {
+    		steps {
+		        echo THIS_PROJECT_VERSION
+		    }
+	    }
+    }
+}
