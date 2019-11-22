@@ -18,7 +18,7 @@ pipeline {
     stages {
     	stage('PRE CHECK') {
     		steps {
-    			dir("${THIS_PROJECT_DIR}"){
+    			dir("../test_jenkins_sub/${THIS_PROJECT_DIR}"){
                     script{
                         THIS_PROJECT_VERSION = sh script: 'echo `pwd`', returnStdout: true
                     }
