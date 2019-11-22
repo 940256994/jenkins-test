@@ -1,4 +1,5 @@
-def map = [ 'name':'test2','asd'='2' ]
+def map = [:]
+map.put('name','caoran')
 pipeline {
     agent {
 	    node {
