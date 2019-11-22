@@ -27,7 +27,8 @@ pipeline {
 	    }
     	stage("Shutdown") {
     		steps {
-		        echo env.THIS_PROJECT_VERSION
+		        echo env.THIS_PROJECT_WEB_PORT
+                echo "${THIS_PROJECT_VERSION}"
 		    }
 	    }
     }
