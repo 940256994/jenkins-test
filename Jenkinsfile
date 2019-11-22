@@ -1,4 +1,4 @@
-def map = [ name:'test2',asd='2' ]
+def map = [ 'name':'test2','asd'='2' ]
 pipeline {
     agent {
 	    node {
