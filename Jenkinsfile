@@ -5,10 +5,17 @@ pipeline {
 	    }
     }
     stages {
-        stage('build all') {
-            steps {
-                build job: '/test_jenkins_sub/jenkins/test_jenkins', parameters: [string(name: 'THIS_PROJECT_DIR', value: 'dir'), string(name: 'THIS_PROJECT_NAME', value: 'test_name'), string(name: 'THIS_PROJECT_WEB_PORT', value: '8080'), string(name: 'THIS_MAVEN_PROFILE', value: 'pro')]
-            }
-        }
+    	stage('PRE CHECK') {
+    		steps {
+    			script {
+			        def map = [ [ name:'test1',id='1' ],[ name:'test2',id='2' ] ]
+			        map.each{
+			            stage(it.name){
+			                echo it.key+it.value
+			            }
+			        }
+			    }
+		    }
+	    }
     }
 }
