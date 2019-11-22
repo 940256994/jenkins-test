@@ -1,4 +1,4 @@
-def map = [ name:'test2',id='2' ]
+def map = [ name:'test2',asd='2' ]
 pipeline {
     agent {
 	    node {
@@ -12,7 +12,7 @@ pipeline {
 			        map.each{
 			            stage(it.name){
 				            steps{
-				                echo it.key+it.value
+				                echo "${it.key}${it.value}"
 				            }
 			                
 			            }
